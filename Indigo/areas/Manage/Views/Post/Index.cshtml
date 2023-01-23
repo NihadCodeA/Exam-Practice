@@ -1,0 +1,43 @@
+﻿@model List<Post>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center my-3">
+        <h3 class="font-weight-bold">Posts</h3>
+        <div>
+            <a class="btn btn-success" asp-area="manage" asp-controller="post" asp-action="create">
+                + Add
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">RedirectText</th>
+                    <th scope="col">RedirectUrl</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Update or delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in Model)
+                {
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>@post.Title</td>
+                        <td>@post.RedirectText</td>
+                        <td>@post.RedirectUrl</td>
+                        <td>
+                            <img style="max-width:150px;max-height:150px;" src="~/uploads/posts/@post.Image"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-controller="post" asp-action="update" asp-route-id="@post.Id">Update</a>
+                            <a class="btn btn-danger" asp-controller="post" asp-action="delete" asp-route-id="@post.Id">Delete</a>
+                            </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

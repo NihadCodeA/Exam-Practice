@@ -1,0 +1,39 @@
+﻿@model Post
+<div class="container">
+     <div class="d-flex justify-content-between align-items-center my-3">
+        <h3 class="font-weight-bold">Create a new Post</h3>
+    </div>
+    <div >
+        <form method="post" asp-action="update" enctype="multipart/form-data">
+             <div class="row">
+                    <div class="col-4">
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" class="form-control" placeholder="Title">
+                <span class="text-danger"asp-validation-for="Title"></span>
+            </div>
+                <div class="col-4">
+                <label asp-for="RedirectText">RedirectText</label>
+                <input asp-for="RedirectText" class="form-control" placeholder="RedirectText">
+                <span class="text-danger"asp-validation-for="RedirectText"></span>
+            </div>
+                <div class="col-4">
+                <label asp-for="RedirectUrl">RedirectUrl</label>
+                <input asp-for="RedirectUrl" class="form-control" placeholder="RedirectUrl">
+                <span class="text-danger"asp-validation-for="RedirectUrl"></span>
+            </div>
+             </div>
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <textarea asp-for="Description" style="min-height:100px;" class="form-control" placeholder="Description"></textarea>
+                <span class="text-danger"asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile">ImageFile</label>
+                <input asp-for="ImageFile" class="form-control">
+                <img style="max-width:150px;max-height:150px" src="~/uploads/posts/@Model.Image" alt="" class="img-responsive" />
+                <span class="text-danger"asp-validation-for="ImageFile"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
